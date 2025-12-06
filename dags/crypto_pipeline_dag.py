@@ -59,7 +59,7 @@ default_args = {
 }
 
 # Danh sách crypto coins cần theo dõi (theo CoinGecko ID)
-COIN_IDS = ['bitcoin', 'ethereum', 'binancecoin', 'cardano', 'solana', 'ripple', 'polkadot', 'dogecoin', 'shiba-inu', 'avalanche-2', 'terra-luna', 'litecoin']
+COIN_IDS = ['bitcoin', 'ethereum', 'binancecoin', 'cardano', 'solana', 'ripple', 'polkadot', 'dogecoin', 'shiba-inu']
 
 # Ngưỡng % thay đổi giá để trigger alert
 ALERT_THRESHOLD = 5.0  # Cảnh báo nếu giá thay đổi > ±5% trong 24h
