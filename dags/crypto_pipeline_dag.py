@@ -439,3 +439,5 @@ def crypto_price_pipeline():
     analyzed >> branch
     branch >> [alert, summary]  # Parallel outputs (nhưng chỉ 1 trong 2 chạy)
     [alert, summary] >> end_task  # Cả 2 đều dẫn đến end
+
+crypto_dag = crypto_price_pipeline()
