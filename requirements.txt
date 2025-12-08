@@ -3,3 +3,7 @@ requests
 psycopg2-binary
 pandas
 python-dateutil
+
+streamlit
+plotly
+streamlit-autorefresh
