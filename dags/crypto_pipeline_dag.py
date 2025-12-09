@@ -61,8 +61,8 @@ default_args = {
 # Danh sách crypto coins cần theo dõi (theo CoinGecko ID)
 COIN_IDS = ['bitcoin', 'ethereum', 'binancecoin', 'cardano', 'solana', 'ripple', 'polkadot', 'dogecoin', 'shiba-inu']
 
-# Ngưỡng % thay đổi giá để trigger alert
-ALERT_THRESHOLD = 5.0  # Cảnh báo nếu giá thay đổi > ±5% trong 24h
+# Threshold limit
+ALERT_THRESHOLD = 5.0
 
 
 # ============================================================================
@@ -78,6 +78,7 @@ ALERT_THRESHOLD = 5.0  # Cảnh báo nếu giá thay đổi > ±5% trong 24h
     catchup=False,  # Không tự động backfill khi enable DAG
     tags=['crypto', 'telegram', 'monitoring'],  # Tags để filter trong UI
     max_active_runs=1,  # Chỉ cho phép 1 DAG run cùng lúc
+    is_paused_upon_creation=True
 )
 def crypto_price_pipeline():
     """
