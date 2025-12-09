@@ -1,33 +1,9 @@
-"""
-DAG: Crypto Price Monitoring Pipeline
-======================================
-
-Mục đích:
-    - Thu thập giá crypto từ CoinGecko API theo định kỳ
-    - Lưu trữ vào PostgreSQL database
-    - Phân tích và gửi cảnh báo qua Telegram khi có biến động lớn
-
-Schedule: Mỗi 4 giờ (00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC)
-
-Flow:
-    Setup DB → Extract → Validate → Transform → Load → Analyze → Branch
-                                                                    ↓
-                                                    Alert Notification (nếu có alert)
-                                                    Summary Notification (nếu không có alert)
-                                                                    ↓
-                                                            Pipeline Complete
-"""
-
 from airflow.decorators import dag, task
 from airflow.operators.empty import EmptyOperator
 from datetime import datetime, timedelta
 from typing import List, Dict
 import sys
 
-# ============================================================================
-# IMPORT HELPER FUNCTIONS
-# ============================================================================
-# Thêm include folder vào Python path để import được helper modules
 sys.path.insert(0, '/usr/local/airflow/include')
 
 from db_utils import create_table, insert_crypto_data
